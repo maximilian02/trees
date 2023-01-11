@@ -10,19 +10,37 @@ const tree = {
             ]
         },
         {
-            title: 'D'
+            title: 'D',
+            children: [
+                {
+                    title: 'Z'
+                }
+            ]
+        },
+        {
+            title: 'F'
         }
     ],
 };
 
-function start(node) {
-    console.log('Node: ', node.title);
-    if(node.children) {
-        node.children.forEach(function (child) {
-            start(child);
-        })
+function search(data, node) {
+    if (node.title === LOOK_FOR_VALUE)
+        return node;
+
+    if(node?.children) {
+        for(let child of node.children) {
+            if(search(data, child))
+                return child;
+        }
     }
 
+    return null;
 }
 
-start(tree);
+const LOOK_FOR_VALUE = 'Z';
+
+const isValuePresent = search(LOOK_FOR_VALUE, tree) ? true : false;
+
+console.log(`Computer looked into the tree for value '${
+    LOOK_FOR_VALUE
+}' and returned saying: ${isValuePresent ? 'IS HERE' : 'IS NOT HERE'}`);
