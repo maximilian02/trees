@@ -88,14 +88,13 @@ class BinarySearchTree {
     }
 
     print() {
-        console.log('///////////////////////////////////////////////////');
-        console.log('--->PRINT TREE VALUES<---- Preorder Traversal mode');
+        console.log('///////////////////////////////////////////////////')
+        console.log('--->PRINT TREE VALUES<---- Preorder Traversal mode')
         this.postOrder(this.root)
     }
 }
 
 const bst = new BinarySearchTree()
-
 /**
  *      Inserts 3 nodes to generate
  *      the next tree:
