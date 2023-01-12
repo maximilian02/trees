@@ -7,11 +7,11 @@ A small project to implement tree data structure and operations around:
 ## Binary tree
 - Insert operation
 - Search operation
-- DFS (Depth First Search) Traversals
+- Depth First Search (DFS) traversals
   - Preorder
   - Inorder
   - Postorder
-- Print
+- Breadth First Search (BFS) traversals
 
 
 # How to run?
