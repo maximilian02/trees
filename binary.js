@@ -56,25 +56,23 @@ class BinarySearchTree {
         }
     }
     
-    inOrder(node, queue) {
+    // TODO: Make also inorder and postorder
+    preOrder(node) {
         if(node === null) {
             return
         }
 
-        this.inOrder(node.left, queue)
-        queue.push(node)
-        this.inOrder(node.right, queue)
+        console.log("(V) = (" + node.value + ")")
+        this.preOrder(node.left)
+        this.preOrder(node.right)
 
         return
     }
 
     print() {
-        let queue = []
-        this.inOrder(this.root, queue)
-        while (queue.length > 0) {
-            var node = queue.shift()
-            console.log("(V) = (" + node.value + ")")
-        }
+        console.log('///////////////////////////////////////////////////');
+        console.log('--->PRINT TREE VALUES<---- Preorder Traversal mode');
+        this.preOrder(this.root)
     }
 }
 
@@ -92,16 +90,22 @@ const bst = new BinarySearchTree()
 bst.insert(10)
 bst.insert(5)
 bst.insert(15)
+bst.insert(3)
+bst.insert(7)
 
 // Check if those values exists on the tree
 const isValue10Present = bst.search(bst.root, 10) ? VALUE_PRESENT : VALUE_NOT_PRESENT
 const isValue5Present = bst.search(bst.root, 5) ? VALUE_PRESENT : VALUE_NOT_PRESENT
 const isValue15Present = bst.search(bst.root, 15) ? VALUE_PRESENT : VALUE_NOT_PRESENT
+const isValue3Present = bst.search(bst.root, 3) ? VALUE_PRESENT : VALUE_NOT_PRESENT
+const isValue7Present = bst.search(bst.root, 7) ? VALUE_PRESENT : VALUE_NOT_PRESENT
 const isValue20Present = bst.search(bst.root, 20) ? VALUE_PRESENT : VALUE_NOT_PRESENT
 
 console.log(`Computer executed a search for value 10 and returned saying "${isValue10Present}"`)
 console.log(`Computer executed a search for value 5 and returned saying "${isValue5Present}"`)
 console.log(`Computer executed a search for value 15 and returned saying "${isValue15Present}"`)
+console.log(`Computer executed a search for value 3 and returned saying "${isValue3Present}"`)
+console.log(`Computer executed a search for value 7 and returned saying "${isValue7Present}"`)
 console.log(`Computer executed a search for value 20 and returned saying "${isValue20Present}"`)
 
 bst.print()
