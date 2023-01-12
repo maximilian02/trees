@@ -55,6 +55,27 @@ class BinarySearchTree {
             }
         }
     }
+    
+    inOrder(node, queue) {
+        if(node === null) {
+            return
+        }
+
+        this.inOrder(node.left, queue)
+        queue.push(node)
+        this.inOrder(node.right, queue)
+
+        return
+    }
+
+    print() {
+        let queue = []
+        this.inOrder(this.root, queue)
+        while (queue.length > 0) {
+            var node = queue.shift()
+            console.log("(V) = (" + node.value + ")")
+        }
+    }
 }
 
 const bst = new BinarySearchTree()
@@ -82,3 +103,5 @@ console.log(`Computer executed a search for value 10 and returned saying "${isVa
 console.log(`Computer executed a search for value 5 and returned saying "${isValue5Present}"`)
 console.log(`Computer executed a search for value 15 and returned saying "${isValue15Present}"`)
 console.log(`Computer executed a search for value 20 and returned saying "${isValue20Present}"`)
+
+bst.print()
