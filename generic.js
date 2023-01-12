@@ -54,14 +54,11 @@ class GenericSearchTree {
 
 const gst = new GenericSearchTree()
 gst.insert(VALUE_A, VALUE_B)
-
-const getA = gst.search(VALUE_A, gst.root)
-const getB = gst.search(VALUE_B, gst.root)
+gst.insert(VALUE_A, VALUE_D)
+gst.insert(VALUE_A, VALUE_F)
 
 gst.insert(VALUE_B, VALUE_C)
-gst.insert(VALUE_A, VALUE_D)
 gst.insert(VALUE_D, VALUE_Z)
-gst.insert(VALUE_A, VALUE_F)
 
 const isValueAPresent = gst.search(VALUE_A, gst.root) ? true : false
 const isValueBPresent = gst.search(VALUE_B, gst.root) ? true : false
