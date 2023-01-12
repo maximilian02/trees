@@ -87,6 +87,22 @@ class BinarySearchTree {
         console.log("(V) = (" + node.value + ")")
     }
 
+    levelOrder() {
+        // use the optimised queue implementation
+        const queue = []
+        queue.push(this.root)
+        while(queue.length) {
+            let curr = queue.shift()
+            console.log(curr.value)
+            if(curr.left) {
+                queue.push(curr.left)
+            }
+            if(curr.right) {
+                queue.push(curr.right)
+            }
+        }
+    }
+
     print() {
         console.log('///////////////////////////////////////////////////')
         console.log('--->PRINT TREE VALUES<---- Preorder Traversal mode')
@@ -125,4 +141,5 @@ console.log(`Computer executed a search for value 3 and returned saying "${isVal
 console.log(`Computer executed a search for value 7 and returned saying "${isValue7Present}"`)
 console.log(`Computer executed a search for value 20 and returned saying "${isValue20Present}"`)
 
-bst.print()
+// bst.print()
+bst.levelOrder();
