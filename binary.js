@@ -56,23 +56,41 @@ class BinarySearchTree {
         }
     }
     
-    // TODO: Make also inorder and postorder
+    // inorder traversal
+    inOrder(node) {
+        if(node === null) {
+            return
+        }
+        this.inOrder(node.left)
+        console.log("(V) = (" + node.value + ")")
+        this.inOrder(node.right)
+    }
+
+    // preorder traversal
     preOrder(node) {
         if(node === null) {
             return
         }
-
         console.log("(V) = (" + node.value + ")")
         this.preOrder(node.left)
         this.preOrder(node.right)
-
         return
+    }
+
+    // postorder traversal
+    postOrder(node) {
+        if(node === null) {
+            return
+        }
+        this.postOrder(node.left)
+        this.postOrder(node.right)
+        console.log("(V) = (" + node.value + ")")
     }
 
     print() {
         console.log('///////////////////////////////////////////////////');
         console.log('--->PRINT TREE VALUES<---- Preorder Traversal mode');
-        this.preOrder(this.root)
+        this.postOrder(this.root)
     }
 }
 
