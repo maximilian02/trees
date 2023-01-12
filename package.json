@@ -1,0 +1,26 @@
+{
+  "name": "trees",
+  "version": "1.0.0",
+  "description": "A small project to implement tree data structure and operations around",
+  "main": "binary.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maximilian02/trees.git"
+  },
+  "keywords": [
+    "data",
+    "structure",
+    "tree",
+    "algorithm"
+  ],
+  "author": "Max Zelarayán",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maximilian02/trees/issues"
+  },
+  "homepage": "https://github.com/maximilian02/trees#readme",
+  "type": "module"
+}
