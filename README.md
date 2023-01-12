@@ -8,9 +8,9 @@ A small project to implement tree data structure and operations around:
 - Insert operation
 - Search operation
 - DFS (Depth First Search) Traversals
-- - Preorder
-- - Inorder
-- - Postorder
+  - Preorder
+  - Inorder
+  - Postorder
 - Print
 
 
