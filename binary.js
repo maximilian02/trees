@@ -161,6 +161,8 @@ const bst = new BinarySearchTree()
  *       10
  *      /  \
  *     5    15
+ *    /
+ *   3
  * 
  */ 
 bst.insert(10)
@@ -170,5 +172,16 @@ bst.insert(3)
 
 bst.levelOrder()
 console.log('------');
-// bst.delete(10)
-// bst.levelOrder()
+bst.delete(10)
+bst.levelOrder()
+
+/**
+ *      After delete 10
+ *      the tree now looks like:
+ * 
+ *       15
+ *      / 
+ *     5    
+ *   /
+ *  3
+ */ 
