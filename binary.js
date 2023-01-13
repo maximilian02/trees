@@ -103,6 +103,49 @@ class BinarySearchTree {
         }
     }
 
+    min(root = this.root) {
+        if(!root.left) {
+            return root.value
+        } else {
+            return this.min(root.left)
+        }
+    }
+
+    max(root = this.root) {
+        if(!root.right) {
+            return root.value
+        } else {
+            return this.max(root.right)
+        }
+    }
+
+    deleteNode(root = this.root, value) {
+        if(root === null) {
+            return root
+        }
+        if(value < root.value) {
+            root.left = this.deleteNode(root.left, value)
+        } else if(value > root.value) {
+            root.right = this.deleteNode(root.right, value)
+        } else {
+            if(!root.left && !root.right) {
+                return null
+            }
+            if(!root.left) {
+                return root.right
+            } else if(!root.right) {
+                return root.left
+            }
+            root.value = this.min(root.right)
+            root.right = this.deleteNode(root.right, root.value)
+        }
+        return root
+    }
+
+    delete(value) {
+        this.root = this.deleteNode(this.root, value)
+    }
+
     print() {
         console.log('///////////////////////////////////////////////////')
         console.log('--->PRINT TREE VALUES<---- Preorder Traversal mode')
@@ -124,22 +167,8 @@ bst.insert(10)
 bst.insert(5)
 bst.insert(15)
 bst.insert(3)
-bst.insert(7)
 
-// Check if those values exists on the tree
-const isValue10Present = bst.search(bst.root, 10) ? VALUE_PRESENT : VALUE_NOT_PRESENT
-const isValue5Present = bst.search(bst.root, 5) ? VALUE_PRESENT : VALUE_NOT_PRESENT
-const isValue15Present = bst.search(bst.root, 15) ? VALUE_PRESENT : VALUE_NOT_PRESENT
-const isValue3Present = bst.search(bst.root, 3) ? VALUE_PRESENT : VALUE_NOT_PRESENT
-const isValue7Present = bst.search(bst.root, 7) ? VALUE_PRESENT : VALUE_NOT_PRESENT
-const isValue20Present = bst.search(bst.root, 20) ? VALUE_PRESENT : VALUE_NOT_PRESENT
-
-console.log(`Computer executed a search for value 10 and returned saying "${isValue10Present}"`)
-console.log(`Computer executed a search for value 5 and returned saying "${isValue5Present}"`)
-console.log(`Computer executed a search for value 15 and returned saying "${isValue15Present}"`)
-console.log(`Computer executed a search for value 3 and returned saying "${isValue3Present}"`)
-console.log(`Computer executed a search for value 7 and returned saying "${isValue7Present}"`)
-console.log(`Computer executed a search for value 20 and returned saying "${isValue20Present}"`)
-
-// bst.print()
-bst.levelOrder();
+bst.levelOrder()
+console.log('------');
+// bst.delete(10)
+// bst.levelOrder()
