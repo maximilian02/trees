@@ -171,7 +171,7 @@ bst.insert(15)
 bst.insert(3)
 
 bst.levelOrder()
-console.log('------');
+console.log('------')
 bst.delete(10)
 bst.levelOrder()
 
